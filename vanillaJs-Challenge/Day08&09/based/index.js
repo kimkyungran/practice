@@ -7,8 +7,7 @@ const toDoForm = document.querySelector(".js-toDoForm"),
     toDolist = document.querySelector(".js-toDoList");
 
 const TODOS_Ls = "toDos";
-
-
+// test
 let toDos = [];
 // 초반 배열 저장
 
@@ -20,7 +19,7 @@ function delToDo(event) {
         return toDo.id !== parseInt(li.id);
     })
     toDos = cleanToDos
-    saveToDos();
+    saveToDos(); //local 삭제
     // console.log(cleanToDos)
 
 }
