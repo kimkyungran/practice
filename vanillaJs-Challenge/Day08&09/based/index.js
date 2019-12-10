@@ -23,7 +23,7 @@ function delToDo(event) {
     // console.log(cleanToDos)
 
 }
-function saveToDos () {
+function saveToDos () { // todo를 가져와서 로컬에 저장하는 역할
     localStorage.setItem(TODOS_Ls , JSON.stringify(toDos)) 
     //JSON.stringify -> objects를 string 로 변경시켜준다.
 }
@@ -33,7 +33,7 @@ function paintToDo(text) {
     const li = document.createElement("li");
     const delBtn = document.createElement("button");
     const span = document.createElement("span");
-    const newId = toDos.length + 1;
+    const newId = toDos.length + 1; //
 
     delBtn.innerText = "❌";
     delBtn.addEventListener("click", delToDo)
@@ -41,28 +41,25 @@ function paintToDo(text) {
 
     li.appendChild(delBtn);
     li.appendChild(span);
-    li.id = newId;
+    li.id = newId; // 새로운 아이디 생성
     toDolist.appendChild(li);
 
-    const toDoObj = { // arrya  생성
+    const toDoObj = { // array  생성
         text: text,
         id: newId
     };
 
-    toDos.push(toDoObj);
+    toDos.push(toDoObj); //toDoObj 배열 안에 오브젝트 저장
     saveToDos(); // push 이후 호출할 것 ! 
 }
 
 function handleSubmit(event) {
-    event.preventDefault();
-    const todoValue = toDoinput.value;
-    paintToDo(todoValue);
-    toDoinput.value = "";
+    event.preventDefault(); // 엔터 새로고침 막기
+    const todoValue = toDoinput.value; // 밸류 값 받아오기
+    paintToDo(todoValue); // 밸류갑을 기반으로 생성? 
+    toDoinput.value = ""; // enter 입력시 ""로 리셋
 }
-function something(toDo) {
 
-    
-}
 function loadToDos() {
     const lodedtoDos = localStorage.getItem(TODOS_Ls);
 
