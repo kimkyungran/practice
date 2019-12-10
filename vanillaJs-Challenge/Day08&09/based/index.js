@@ -8,9 +8,22 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_Ls = "toDos";
 
-const toDos = [];
+
+let toDos = [];
 // 초반 배열 저장
 
+function delToDo(event) {
+    const btn = event.target
+    const li = btn.parentNode;
+    toDolist.removeChild(li);
+    const cleanToDos = toDos.filter(function(toDo) {
+        return toDo.id !== parseInt(li.id);
+    })
+    toDos = cleanToDos
+    saveToDos();
+    // console.log(cleanToDos)
+
+}
 function saveToDos () {
     localStorage.setItem(TODOS_Ls , JSON.stringify(toDos)) 
     //JSON.stringify -> objects를 string 로 변경시켜준다.
@@ -24,6 +37,7 @@ function paintToDo(text) {
     const newId = toDos.length + 1;
 
     delBtn.innerText = "❌";
+    delBtn.addEventListener("click", delToDo)
     span.innerText = text ;
 
     li.appendChild(delBtn);
