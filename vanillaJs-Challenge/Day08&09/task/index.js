@@ -5,7 +5,7 @@
 const form = document.querySelector(".todo-form"),
     input = form.querySelector("input"),
     pendingList = document.querySelector(".pendingList"),
-    finishList = document.querySelector(".FinishedList");
+    finishList = document.querySelector(".finishedList");
 
 // const TODO_LS = "toDos";
 const PENDING = "PENDING";
@@ -107,7 +107,7 @@ function paintFinishedTask(task) {
     backBtn.innerText = "⏪";
     backBtn.addEventListener("click", handleBackClick);
     genericLi.append(backBtn);
-    finishedList.append(genericLi);
+    finishList.append(genericLi);
 }
 
 function saveState() {
