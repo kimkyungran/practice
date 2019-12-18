@@ -65,7 +65,8 @@ function handleFinishClick(e) {
     const task = findInPending(li.id);
     removeFromPending(li.id);
     addToFinished(task);
-    paintFinished(task);
+    paintFinishedTask(task);
+    
     saveState();
 }
 

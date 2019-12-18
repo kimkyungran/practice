@@ -15,7 +15,7 @@ function loadCountries() {
   const selected = localStorage.getItem("country");
 
   if (selected) {
-    const option = document.querySelector(`option[value="${selected}"]`);
+    constoption = document.querySelector(`option[value="${selected}"]`);
 
     option.selected = true;
   }
