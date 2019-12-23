@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	
+	<link href="main.css" rel="stylesheet">
+
+	<title>Hello, world!</title>
+</head>
+
+<body>
+
+<!--
+	1. 미리만들어놓고
+	2. 숨겼다가
+	3. 버튼누르면 보여줌
+-->
+	
+	<div class="black-box" id="모달창">
+		<div class="white-box">
+			<h4 id="제목">로그인하세요</h4>
+			<form action="login.php" onsubmit="return false">
+				<div class="form-group">
+					<input type="email" class="form-control" id="이메일">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control">
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			<button id="close">닫기</button>
+		</div>
+	</div> 
+	
+	
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">DressShop</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pricing</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	
+	<div class="jumbotron background">
+		<h1 class="display-4">Year's End SALE</h1>
+		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+		<hr class="my-4">
+		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+		<a class="btn btn-primary btn-lg" href="#" role="button" onclick="">로그인</a>
+		
+		<a class="btn btn-primary btn-lg" href="#" role="button" onclick="">회원가입</a>
+		
+	</div>
+	
+	
+	<script>
+		
+		
+		var 오늘점심값 = 4000;
+		
+		function 법카결제(){
+			if (오늘점심값 < 6000){
+				return '승인'
+			} else {
+				return '거절'
+			}
+		}
+		
+		
+		//복습1. 로그인 버튼을 누르면 모달창이 열리는 기능을 만들어봅시다. 모달창 HTML은 위에 준비되어있습니다. 배웠던 function 문법을 사용하면 조금 더 깔끔한 개발이 가능합니다. 
+
+
+
+
+		//복습2. 익스플로러9 이상의 개발 환경에서 즐겨 사용한다는 addEventListener()를 이용해서 모달창 닫기버튼의 기능을 개발해봅시다.
+		
+
+
+
+
+		//복습3. 로그인, 가입하기 버튼을 누를 때마다 각각 다른 제목을 가진 모달창을 띄워보세요. 방법은 한가지가 아닙니다.
+
+
+
+
+
+		//복습4. 법카결제() 기능을 약간만 다르게 만들어보도록 합시다. 이번엔 오늘 점심값이 6천원 이상이면 거절, 미만이면 승인을 출력해주면 되는데..... 이번엔 법카결제() 함수를 1. 점심값을 함수에 파라미터(구멍)로 입력하면 2. 승인 혹은 거절을 콘솔창에 출력해주는 함수로 만들어보도록 합시다. (수업시간 예제와는 약간 달라요)
+
+		//(에시) 법카결제(10000) 이라고 쓰면 콘솔창에 '거절'이 출력되어야하고, 법카결제(4000)이라고 쓰면 콘솔창에 '승인'이 출력되어야합니다. 
+		
+		function 법카결제() {
+			//빨리 여기에 코드 짜세요
+		}
+
+
+		
+
+
+
+
+
+		//복습5. 함수를 이용해 이메일 input 공백 검사기능 만들기 : 모달창 내의 폼을 전송할 때 이메일 input에 입력한 값이 공백일 경우 폼 전송을 막아야합니다. 반면에 공백이 아니면 폼을 전송시켜보도록 합시다.
+
+
+
+
+		
+		
+		
+		
+		//복습6. 여러분의 1.이름 2.출생 지역 데이터를 각각 변수에 저장해봅시다. 이름은 개명할 수 있으니 값을 재할당 가능한 변수, 출생지역은 바뀌지 않으니 값을 재할당이 불가능한 변수에 저장해보도록 합시다. 
+		
+		
+		
+		
+
+
+		//숙제1. 이메일뿐만 아니라 비밀번호 입력란도 공백검사를 해주는 기능을 기존 코드에 더해주도록 합시다. 복습5에서 만든 코드를 어떻게 업그레이드 해야할까요? 
+
+
+		
+		
+		
+		
+		//숙제2. 이메일 혹은 비밀번호 입력란이 공란이면 input태그 아래에 '여기 이상해요'라고 안내문을 표시해주는 게 훨씬 유저 친화적이겠죠? 그러니 빨리 만들어봅시다. 이메일이 공란일 시 전송버튼을 누르면 '여기이상해요'라는 안내 메세지를 폼 아래에 띄워보는 일종의 UI 기능을 추가해봅시다. 
+		
+		
+
+
+
+
+		//숙제3. 이메일 공백검사만으로는 부족합니다. "지금 입력한 값이 이메일형식이 맞는지" 검사하는 기능을 만들어봅니다. 1. 이메일이 공백이거나 2. 올바른 이메일 형식이 아니면 안내문을 띄워주도록 합니다. (이메일 정규식에 관한 내용 당연히 검색필요) 앞서 해봤던 코드들이 복잡하다면 다 주석처리하고 이 두개의 기능만 추가된 코드를 새롭게 제작해봅시다. 
+
+
+
+
+
+
+		//숙제 겸 예습4. 수업시간처럼 이쁜함수()를 만들어서 <form onsubmit="">에 집어넣지말고, 요즘사용한다는 그 addEventListener를 이용해 다시 한번 공백체크 기능을 만들어보세요. 
+
+		//(팁) 당연히 모르는 내용은 구글에 물어보실 수 있습니다.
+
+
+
+
+
+
+		//코딩테스트 스타일 숙제5. 철수는 369게임 자바스크립트 봇을 만들려고 합니다. (여기서의 369게임은 '3의 배수에서' 박수를 치면 게임입니다) 어떤 숫자를 집어넣으면 박수를 쳐야할 지 말아야할 지 판단해주는 함수를 디자인해보려고 합니다. 어떻게 함수를 만들어야할까요?
+
+
+		function 게임봇() {
+			//여기에 함수를 디자인해봅시다.
+
+		}
+
+
+		//(결과 예시)
+
+		//게임봇(12); 함수에 12를 입력하면 콘솔창에 "박수"라는 글자가 나와야합니다.
+		//게임봇(5); 함수에 5를 입력하면 콘솔창에 "통과"라는 글자가 나와야합니다.
+
+		//(팁) 자바스크립트엔 +- 말고도 % 라는 연산자가 있습니다. 
+
+
+
+
+
+
+		//코딩테스트 스타일 숙제6. 근데 요즘 인싸들은 369게임 업그레이드 버전을 한다고 합니다. 일단 3의 배수에서 박수를 치는건 맞는데, 현재 숫자가 9의 배수이기도 할 경우엔 박수를 두번쳐야합니다. 그럼 숙제4에서 만들었던 게임봇 함수를 어떻게 업그레이드 하면 될까요?
+
+		//(예시)
+		//게임봇(3); 함수에 3을 입력하면 콘솔창에 "박수"라는 글자가 나와야합니다.
+		//게임봇(5); 함수에 5를 입력하면 콘솔창에 "통과"라는 글자가 나와야합니다.
+		//게임봇(18); 함수에 18을 입력하면 콘솔창에 "박수x2"라는 글자가 나와야합니다.
+
+			
+			
+		
+		
+	</script>
+	
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

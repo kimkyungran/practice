@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link href="main.css" rel="stylesheet">
+
+	<title>Hello, world!</title>
+</head>
+
+<body>
+
+	<!--
+	1. 미리만들어놓고
+	2. 숨겼다가
+	3. 버튼누르면 보여줌
+-->
+
+	<!--
+	1. 이메일입력란이 빈칸이면
+	2. 폼전송막기 (false 퉤)
+	3. 빈칸이아니면
+	4. 폼전송하기 (true 퉤)
+-->
+
+	<div class="black-box" id="모달창">
+		<div class="white-box">
+			<h4 id="제목">로그인하세요</h4>
+			<form action="login.php" onsubmit="return 이메일체크()">
+				<div class="form-group">
+					<input type="email" class="form-control" id="이메일">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control">
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			<button id="close">닫기</button>
+		</div>
+	</div>
+
+	<script>
+		
+		
+		
+		document.getElementById('모달창').addEventListener('click', function(e){
+			
+//	console.log(e.target); //내가 실제 클릭한 요소
+//	e.currentTarget; this; //실제 이벤트가 달린곳 
+//  e.preventDefault(); //클릭 기본동작막기
+//	e.stopPropagation(); //버블링 막기
+			
+			//항상닫는게아니라.. 내가 실제 검은배경을 눌렀을때만 닫아주셈
+			if (e.target == document.querySelector('.black-box')){
+				document.getElementById('모달창').style.display = 'none';
+			}
+			
+		});
+		
+		
+		
+		
+		
+		
+		//		function 예쁜함수(구멍){
+		//			document.getElementById('제목').innerHTML = 구멍;
+		//			return 100
+		//		}
+		//		
+		//		예쁜함수('안녕');
+		//		예쁜함수('잘가');
+
+
+
+
+
+		function 이메일체크() {
+			//1. 이메일입력란이 빈칸이면
+			//2. 폼전송막기 (false 퉤)
+
+			if (document.getElementById('이메일').value == '') {
+				return false
+			} else {
+				return true
+			}
+		}
+
+		//		document.getElementById().innerHTML = ??;
+		//		function 1,2,3
+		//		var 
+		//		if (조건){실행할코드}
+		//		else {}
+
+
+
+
+
+		document.getElementById('close').addEventListener('click', function() {
+			document.getElementById('모달창').style.display = 'none'
+		});
+	</script>
+
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">DressShop</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pricing</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="jumbotron background">
+		<h1 class="display-4">Year's End SALE</h1>
+		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+		<hr class="my-4">
+		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+		<a class="btn btn-primary btn-lg" href="#" role="button" onclick="열기('가입하세요');">로그인</a>
+
+		<a class="btn btn-primary btn-lg" href="#" role="button" onclick="열기('로그인하세요')">회원가입</a>
+
+	</div>
+
+	<script>
+		//1. 긴코드를 한단어로 축약
+		function 모달창열기() {
+			document.getElementById('모달창').style.display = 'block';
+			document.getElementById('제목').innerHTML = '로그인하세요';
+		}
+
+		function 가입창열기() {
+			document.getElementById('모달창').style.display = 'block';
+			document.getElementById('제목').innerHTML = '가입하세요';
+		}
+
+
+		function 열기(구멍) {
+			document.getElementById('모달창').style.display = 'block';
+			document.getElementById('제목').innerHTML = 구멍;
+		}
+
+
+		//		열기('가입하세요');
+		//		열기('로그인하세요');
+
+
+
+		//2. 구멍 (파라미터)
+		function 더하기(구멍) {
+			1 + 구멍;
+		}
+
+		더하기(4);
+		더하기(300);
+
+
+		//1. 자료를 잠깐 저장해서 쓰기 위해 
+		//- 선언, 할당, 범위
+		//		var 성함 = '아챤이앛늬ㅏㅇ치ㅡㅕㅓㅇㅈ다ㅣㄹ';
+		//		var 나이 = 20; //범위 function(){}
+		//		let 나이 = 20; //재선언X 재할당O 범위{}
+		//		const 나이 = 20; //재선언X 재할당X 범위{}
+
+		var 오늘점심값 = 1000;
+
+		function 법카결제() {
+
+			//오늘점심값이 6천원미만일때만 승인을 퉤
+			if (오늘점심값 < 6000) {
+				return '승인'
+			} else {
+				return '거절'
+			}
+
+			//			
+			//			if (오늘점심값 >= 6000){
+			//				return '거절'
+			//			}
+		}
+
+
+
+
+
+
+		if (3 == 4) {
+			console.log('맞아요');
+		} else {
+			console.log('맞아요')
+		}
+
+		//3. 퉤
+		//4. return은 함수종료의 뜻도 있음
+		function 더하기() {
+			return 1 + 2;
+		}
+
+
+		//		//Array
+		//		var 차 = ['BMW', 520, 30000 ];
+		//		console.log( 차[2] );
+		//		
+		//		//Object
+		//		var 차2 = { brand : 'BMW', model : 520 }
+		//		console.log(차2.model);
+		//		console.log(차2['model']);
+	</script>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card">
+					<img src="pic1.jpg" class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<img src="pic2.jpg" class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<img src="pic3.jpg" class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<h4 id="제목2">임시제목</h4>
+
+	<script>
+		var products = [{
+				id: 1,
+				price: 299,
+				img: 'img/pic1.jpg',
+				title: 'Blossom Dress',
+				text: "Do you like some random yellow stuff? Here's one for you."
+			},
+			{
+				id: 2,
+				price: 199,
+				img: 'img/pic1.jpg',
+				title: 'Springfield Shirt',
+				text: "Stole it from my dad."
+			},
+			{
+				id: 3,
+				price: 399,
+				img: 'img/pic3.jpg',
+				title: 'Black Monastery',
+				text: "The best beer comes from the monastery."
+			}
+		];
+		
+		products.sort(function(a,b){
+			return a.price - b.price
+		});
+		
+		//document.getElementById('???').innerHTML = ????;
+		//document.getElementsByClassName('card-title')[0].innerHTML = ??;
+		//document.querySelectorAll('.card-title')[0].innerHTML = ??;
+		//document.querySelector('.card-title').innerHTML = ??;
+		
+		document.querySelectorAll('.card-title')[0].innerHTML = products[0].title;
+		
+		
+		var 어레이 = [2,5,30,1,4];
+		
+		어레이.sort(function(a,b){
+			return b - a 
+//			(-) : b 오른쪽으로보냄
+//			(+) : b 왼쪽으로보냄
+		});
+		
+		var 뉴어레이 = 어레이.map(a => a * 1170);
+		
+		var 뉴어레이 = 어레이.filter(function(a){
+			return a < 3
+		});
+		
+		console.log(뉴어레이);
+		
+				
+				
+				
+		
+		
+		
+//		var 차 = { name: 'BMW', model : 520 }
+//		차.model = 530;
+//		차.color = 'white';
+		
+		
+		var 차2 = [{
+			name: 'BMW'
+		}, {
+			price: 30000
+		}];
+		document.getElementById('제목2').innerHTML = 차2[0].name;
+	</script>
+
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

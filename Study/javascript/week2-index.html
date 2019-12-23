@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link href="main.css" rel="stylesheet">
+
+	<title>Hello, world!</title>
+</head>
+
+<body>
+
+	<!--
+	1. 미리만들어놓고
+	2. 숨겼다가
+	3. 버튼누르면 보여줌
+-->
+
+	<!--
+	1. 이메일입력란이 빈칸이면
+	2. 폼전송막기 (false 퉤)
+	3. 빈칸이아니면
+	4. 폼전송하기 (true 퉤)
+-->
+
+	<div class="black-box" id="모달창">
+		<div class="white-box">
+			<h4 id="제목">로그인하세요</h4>
+			<form action="login.php" onsubmit="return 이메일체크()">
+				<div class="form-group">
+					<input type="email" class="form-control" id="이메일">
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control">
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			<button id="close">닫기</button>
+		</div>
+	</div>
+
+	<script>
+		
+		function 이메일체크() {
+			//1. 이메일입력란이 빈칸이면
+			//2. 폼전송막기 (false 퉤)
+
+			if (document.getElementById('이메일').value == '') {
+				return false
+			} else {
+				return true
+			}
+		}
+
+
+
+		document.getElementById('close').addEventListener('click', function() {
+			document.getElementById('모달창').style.display = 'none'
+		});
+	</script>
+
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">DressShop</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pricing</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="jumbotron background">
+		<h1 class="display-4">Year's End SALE</h1>
+		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+		<hr class="my-4">
+		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+		<a class="btn btn-primary btn-lg" href="#" role="button" onclick="열기('가입하세요');">로그인</a>
+
+		<a class="btn btn-primary btn-lg" href="#" role="button" onclick="열기('로그인하세요')">회원가입</a>
+
+	</div>
+
+	<script>
+		//1. 긴코드를 한단어로 축약
+		function 모달창열기() {
+			document.getElementById('모달창').style.display = 'block';
+			document.getElementById('제목').innerHTML = '로그인하세요';
+		}
+
+		function 가입창열기() {
+			document.getElementById('모달창').style.display = 'block';
+			document.getElementById('제목').innerHTML = '가입하세요';
+		}
+
+
+		function 열기(구멍) {
+			document.getElementById('모달창').style.display = 'block';
+			document.getElementById('제목').innerHTML = 구멍;
+		}
+
+
+		//		열기('가입하세요');
+		//		열기('로그인하세요');
+
+
+	</script>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card">
+					<img src="pic1.jpg" class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<img src="pic2.jpg" class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<img src="pic3.jpg" class="card-img-top">
+					<div class="card-body">
+						<h5 class="card-title">Card title</h5>
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						<a href="#" class="btn btn-primary">Go somewhere</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<script>
+		var products = [{
+				id: 1,
+				price: 299,
+				img: 'img/pic1.jpg',
+				title: 'Blossom Dress',
+				text: "Do you like some random yellow stuff? Here's one for you."
+			},
+			{
+				id: 2,
+				price: 199,
+				img: 'img/pic1.jpg',
+				title: 'Springfield Shirt',
+				text: "Stole it from my dad."
+			},
+			{
+				id: 3,
+				price: 399,
+				img: 'img/pic3.jpg',
+				title: 'Black Monastery',
+				text: "The best beer comes from the monastery."
+			}
+		];
+		
+	</script>
+
+
+
+	<h4 id="brand">임시브랜드명</h4>
+	<script>
+		var 자동차 = [
+			{
+				brand: 'BMW',
+				model: 520
+			},
+			{
+				brand: 'Kia',
+				model: 'K5'
+			}
+		];
+
+	</script>
+	
+	<br><br>복습0. 위의 '자동차'라는 변수안에 저장되어있는 BMW라는 브랜드명 정보를 꺼내 바로 위에있는 h4 태그 내에 글자로 집어넣고 싶습니다. 어떻게 자바스크립트를 짜면 될까요?
+
+
+
+
+	<br><br>복습1. 위의 products라는 변수안에 저장되어있는 첫째 상품의 '제목'과 '제품설명'을 현재 페이지의 첫째 상품 HTML 레이아웃 내부에 집어넣어보도록 합시다. (데이터 바인딩)
+
+
+
+
+
+	<br><br>복습2. 모달창의 검은배경을 누르면 모달창이 닫히는 기능을 만들어봅시다. 흰배경을 누르면 모달창이 닫히는 버그가 일어나면 안됩니다.
+
+
+
+
+
+
+	<br><br>복습3. products 라는 array 안에 있는 object{} 데이터 3개를 가격 낮은 순으로 정렬하려면 어떻게 코드를 짜야할까요?
+
+
+
+
+
+
+	<br><br>복습4. detail.html의 탭기능을 직접 처음부터 한번 만들어봅시다. tab.js에 이미 답이 나와있기 때문에 tab.js 보지 말고 detail.html하단에 스크립트태그 열어서 직접 짜보면 훌륭한 복습이 되지않을까요
+
+	<br>팁) 1. 버튼3개 한번에 개발하려하지말고 버튼 하나만 먼저 합시다. 2. 우선 한글로 설명부터 적는게 매우 좋은 습관입니다.
+
+
+
+
+
+
+
+
+	<br><br>숙제1. 수업시간엔 products 변수안에 저장된 맨 첫째상품 정보만 HTML내부에 집어넣었는데 이번엔 3개 상품 정보 모두 전부 HTML에 데이터 바인딩해봅시다. 가격 표시하는 곳이 없다고요? 가격 적을 태그 하나 만드시면 됩니당. 너무 코드가 길다고요? 오늘 배웠던 for 반복문을 써보는건 어떨까요.
+
+
+
+
+
+
+
+	<br><br>숙제2. [가격 낮은 순 정렬] 버튼을 사이트 내에 만들어보세요. 정렬 버튼을 누르면 상품이 샤샥 정렬되는 모습까지 확인되어야 성공입니다.
+
+
+
+
+
+
+
+
+	<br><br>숙제3. [상품 가나다 순 정렬]버튼도 한번 만들어봅시다. 역시 정렬 버튼을 누르면 상품이 샤샥 정렬되는 모습까지 확인되어야 성공입니다.
+
+
+
+
+
+
+
+
+	<br><br>숙제4. 이번엔 [300달러 이하 상품만 보기] 버튼을 만들어봅시다. 그럼 상품이 2개만 딱 나와야하긴 하지만 아직은 구현하기 어려울 수도 있으니 그냥 마지막 상품이 사라지는건 무시하시고 버튼과 JavaScript 기능만 만들어보셔도 봐드리겠습니다.
+
+
+
+
+
+
+
+	<br><br>숙제5. 복습시간에 만들었던 여러분의 탭기능 코드는 확장성이 없습니다. 못된 퍼블리셔가 갑자기 HTML파일을 수정해서 탭의 버튼과 내용의 갯수를 3개에서 5개로 갑자기 늘리면 여러분이 짜놓은 코드는 동작하지 않으니까요. 그럼 여러분의 자바스크립트코드를 어떻게 수정해야 탭이 5개가 되든 6개가 되든 상관없이 탭기능이 잘 동작할까요?
+
+	<br>(힌트) 탭내용과 버튼 HTML을 하나 더 만들고 한번 시험해보시면 코드를 잘 짰는지 확인해보실 수 있겠죠?
+	<br>(힌트) 수업시간에 안가르쳐 드린 내용이라 검색이 필요할 수 있습니다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<br><br>코딩테스트 스타일 숙제6. 1이상 1000이하까지의 모든 자연수의 합을 자바스크립트를 이용해 구해보도록 합시다. 콘솔창에 합계가 뿅하고 뜨면 성공입니다. 
+
+	<br>(힌트) 방법은 여러가지입니다. 실제 테스트에선 여러분이 작성하신 코드의 작동속도가 빠를 수록 높은 점수를 받습니다. 
+
+
+
+
+
+
+
+
+	<br><br>코딩테스트 스타일 숙제7. 아래에 phone이라는 변수에 여러가지 핸드폰 모델명이 저장되어있습니다. 이 데이터들 중에 내가 원하는 제품명이 있으면 '있어요'를 콘솔창에, 없으면 '없어요'를 콘솔창에 출력하는 간단한 검색을 해주는 함수를 만들어보려고 합니다.
+
+	<br>(목표) search('갤럭시S')라고 입력하면 콘솔창에 '있어요!'라고 출력되도록 search 함수를 만들어보세요.
+
+	<br>(조건) filter, find, indexOf, substr, map 등 어디서 찾아본 자바스크립트 내장함수 사용금지
+
+	<script>
+		var phone = ['아이폰XR', '아이폰XS', '갤럭시S', 'V30', '블랙베리'];
+
+		function search() {
+
+			//어떤 코드가 들어가야할까요?
+
+		}
+
+		search('갤럭시S'); //콘솔창 출력결과 : '있어요!' 
+		search('아리랑폰'); //콘솔창 출력결과 : '없어요!'
+	</script>
+
+
+
+
+	<br><br>시간 남으면 해보면 좋을 예습1. addEventListener 갯수를 줄이면 장점이 많습니다. detail.html에서 탭기능을 다시 만들어보는데, 강의시간에는 addEventListner를 3개나 썼는데 이번엔 addEventListener를 탭 HTML레이아웃내의 ul 이라는 태그에 딱 하나만 써서 만들어봅시다.
+
+	<br>(힌트) 이번주에 배운 이벤트 버블링과 이벤트 함수를 이용하면 될 수도 있을걸요?
+
+
+
+
+
+
+
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

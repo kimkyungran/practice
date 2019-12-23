@@ -1,0 +1,23 @@
+
+.background {
+	background-image: url(cover.jpg);
+	background-size: cover;
+}
+
+.black-box {
+	background: rgba(0,0,0,0.5);
+	width: 100%; 
+	height: 100%;
+	position: fixed;
+	z-index: 5;
+	padding-top: 150px;
+	display: none;
+}
+
+.white-box {
+	background: white;
+	width: 80%; max-width: 600px;
+	margin: auto;
+	padding: 20px;
+	border-radius: 5px;
+}
