@@ -116,7 +116,30 @@
 	
 <!--	<script src="tab.js"></script>-->
 	
-	
+	<script>
+		let tab = document.querySelectorAll('.tab-button');
+		let content = document.querySelectorAll('.tab-content'); 
+		
+			for(let i = 0; i < tab.length ; i++ ) {
+				
+				tab[i].addEventListener ('click', function (e) {
+
+					tab.forEach(function(t) {
+						t.classList.remove('orange');
+					})
+					
+					tab[i].classList.add('orange');
+
+					// tab[0].classList.remove('orange');
+					// tab[1].classList.remove('orange');
+					// tab[2].classList.remove('orange');
+					// tab[i].classList.add('orange');
+				})
+				
+			}
+
+
+	</script>
 
 
 

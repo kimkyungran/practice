@@ -11,6 +11,11 @@
 	<link href="main.css" rel="stylesheet">
 
 	<title>Hello, world!</title>
+
+	<style>
+		.sort_btn {text-align: center;}
+		.sort_btn button {padding: 5px 10px; color: #fff; background-color: #000;border: none; border-radius: 5px;}
+	</style>
 </head>
 
 <body>
@@ -131,6 +136,7 @@
 					<img src="pic1.jpg" class="card-img-top">
 					<div class="card-body">
 						<h5 class="card-title">Card title</h5>
+						<h6 class="card-price">Card price</h6>
 						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 						<a href="#" class="btn btn-primary">Go somewhere</a>
 					</div>
@@ -141,6 +147,7 @@
 					<img src="pic2.jpg" class="card-img-top">
 					<div class="card-body">
 						<h5 class="card-title">Card title</h5>
+						<h6 class="card-price">Card price</h6>
 						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 						<a href="#" class="btn btn-primary">Go somewhere</a>
 					</div>
@@ -151,45 +158,44 @@
 					<img src="pic3.jpg" class="card-img-top">
 					<div class="card-body">
 						<h5 class="card-title">Card title</h5>
+						<h6 class="card-price">Card price</h6>
 						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 						<a href="#" class="btn btn-primary">Go somewhere</a>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="sort_btn">
+			<button id="sort_price">price</button>
+			<button id="sort_abc">sort</button>
+		</div>
 	</div>
 
-
-
-
-
-	<script>
-		var products = [{
+	<script>		
+	
+	var products = [{
 				id: 1,
 				price: 299,
-				img: 'img/pic1.jpg',
+				img: 'pic1.jpg',
 				title: 'Blossom Dress',
 				text: "Do you like some random yellow stuff? Here's one for you."
 			},
 			{
 				id: 2,
 				price: 199,
-				img: 'img/pic1.jpg',
+				img: 'pic2.jpg',
 				title: 'Springfield Shirt',
 				text: "Stole it from my dad."
 			},
 			{
 				id: 3,
 				price: 399,
-				img: 'img/pic3.jpg',
+				img: 'pic3.jpg',
 				title: 'Black Monastery',
 				text: "The best beer comes from the monastery."
 			}
-		];
-		
+		];		
 	</script>
-
-
 
 	<h4 id="brand">임시브랜드명</h4>
 	<script>
@@ -205,73 +211,163 @@
 		];
 
 	</script>
-	
 	<br><br>복습0. 위의 '자동차'라는 변수안에 저장되어있는 BMW라는 브랜드명 정보를 꺼내 바로 위에있는 h4 태그 내에 글자로 집어넣고 싶습니다. 어떻게 자바스크립트를 짜면 될까요?
 
+	<script>
+		let brand = document.getElementById('brand');
 
+		brand.innerHTML = 자동차[0].brand;
+	
+	</script>
 
 
 	<br><br>복습1. 위의 products라는 변수안에 저장되어있는 첫째 상품의 '제목'과 '제품설명'을 현재 페이지의 첫째 상품 HTML 레이아웃 내부에 집어넣어보도록 합시다. (데이터 바인딩)
+	<script>
+		/*
+		let title = document.querySelector('.card-title');
+		let pdt_txt = document.querySelector('.card-text');
 
-
-
-
-
+		title.innerHTML = products[0].title;
+		pdt_txt.innerHTML = products[0].text;
+		*/
+		
+	</script>
 	<br><br>복습2. 모달창의 검은배경을 누르면 모달창이 닫히는 기능을 만들어봅시다. 흰배경을 누르면 모달창이 닫히는 버그가 일어나면 안됩니다.
+	<script>
+		let modalBox = document.getElementById('모달창');
+		
+		modalBox.addEventListener('click', function (e) {
+			
+			if (e.target === e.currentTarget){
+				e.stopPropagation;
 
-
-
-
+				this.style.display = 'none';
+			}
+		})
+	</script>
 
 
 	<br><br>복습3. products 라는 array 안에 있는 object{} 데이터 3개를 가격 낮은 순으로 정렬하려면 어떻게 코드를 짜야할까요?
 
-
-
-
-
+	<script>
+		/*
+		products.sort((a, b) => a.price - b.price);
+		console.log(products);
+		*/
+	</script>
 
 	<br><br>복습4. detail.html의 탭기능을 직접 처음부터 한번 만들어봅시다. tab.js에 이미 답이 나와있기 때문에 tab.js 보지 말고 detail.html하단에 스크립트태그 열어서 직접 짜보면 훌륭한 복습이 되지않을까요
 
 	<br>팁) 1. 버튼3개 한번에 개발하려하지말고 버튼 하나만 먼저 합시다. 2. 우선 한글로 설명부터 적는게 매우 좋은 습관입니다.
+	<script>
+		/*
+		let tab = document.querySelectorAll('.tab-button');
+		let content = document.querySelectorAll('.tab-content'); 
+		
+			for(let i = 0; i < tab.length ; i++ ) {
+				
+				tab[i].addEventListener ('click', function (e) {
 
+					tab.forEach(function(t) {
+						t.classList.remove('orange');
+					})
+					
+					tab[i].classList.add('orange');
 
+					// tab[0].classList.remove('orange');
+					// tab[1].classList.remove('orange');
+					// tab[2].classList.remove('orange');
+					// tab[i].classList.add('orange');
+				})
+				
+			}
 
-
-
-
-
-
+		*/
+	</script>
 	<br><br>숙제1. 수업시간엔 products 변수안에 저장된 맨 첫째상품 정보만 HTML내부에 집어넣었는데 이번엔 3개 상품 정보 모두 전부 HTML에 데이터 바인딩해봅시다. 가격 표시하는 곳이 없다고요? 가격 적을 태그 하나 만드시면 됩니당. 너무 코드가 길다고요? 오늘 배웠던 for 반복문을 써보는건 어떨까요.
 
-
-
-
-
-
+	<script>
+		let title = document.querySelectorAll('.card-title');
+		let pdt_txt = document.querySelectorAll('.card-text');
+		let pdt_price = document.querySelectorAll('.card-price');
+		let pdt_img = document.querySelectorAll('.card-img-top');
+		
+		for (let i = 0 ; i < products.length ; i++) {
+			title[i].innerHTML = products[i].title;
+			pdt_txt[i].innerHTML = products[i].text;
+			pdt_price[i].innerHTML = products[i].price;
+		}
+	</script>
 
 	<br><br>숙제2. [가격 낮은 순 정렬] 버튼을 사이트 내에 만들어보세요. 정렬 버튼을 누르면 상품이 샤샥 정렬되는 모습까지 확인되어야 성공입니다.
 
+	<script>
+		let priceBtn = document.getElementById('sort_price');
 
+		priceBtn.addEventListener('click', () => {
+			products.sort((a, b) => a.price - b.price);
+			console.log( products)
 
-
-
-
-
+			for (let i = 0 ; i < products.length ; i++) {
+				title[i].innerHTML = products[i].title;
+				pdt_txt[i].innerHTML = products[i].text;
+				pdt_price[i].innerHTML = products[i].price;
+				pdt_img[i].src = products[i].img;
+			}
+		})
+	</script>
 
 	<br><br>숙제3. [상품 가나다 순 정렬]버튼도 한번 만들어봅시다. 역시 정렬 버튼을 누르면 상품이 샤샥 정렬되는 모습까지 확인되어야 성공입니다.
 
+	<script>
+		let abcBtn = document.getElementById('sort_abc');
+		/*
 
+		abcBtn.addEventListener('click', () => {
+			products.sort(function (a, b){
+				return a.title > b.title ? 1 : -1;
+			});
+			console.log( products)
 
-
+			for (let i = 0 ; i < products.length ; i++) {
+				title[i].innerHTML = products[i].title;
+				pdt_txt[i].innerHTML = products[i].text;
+				pdt_price[i].innerHTML = products[i].price;
+				pdt_img[i].src = products[i].img;
+			}
+		})
+		*/
+	</script>
 
 
 
 
 	<br><br>숙제4. 이번엔 [300달러 이하 상품만 보기] 버튼을 만들어봅시다. 그럼 상품이 2개만 딱 나와야하긴 하지만 아직은 구현하기 어려울 수도 있으니 그냥 마지막 상품이 사라지는건 무시하시고 버튼과 JavaScript 기능만 만들어보셔도 봐드리겠습니다.
 
+	<script>
+		
+		abcBtn.innerHTML = 'min $300'
+		function remove () {
+			let less300 = products.filter(function (product) {
+				return product.price <= 300;
+			}) ;
+			console.log(less300);
+			
+			
+			for (let i = 0 ; i < less300.length ; i++) {
+
+				title[i].innerHTML = products[i].title;
+				pdt_txt[i].innerHTML = products[i].text;
+				pdt_price[i].innerHTML = products[i].price;
+				pdt_img[i].src = products[i].img;		
+
+			}
+		}		
+		
+		abcBtn.addEventListener('click', remove);	
 
 
+	</script>
 
 
 
@@ -282,21 +378,47 @@
 	<br>(힌트) 수업시간에 안가르쳐 드린 내용이라 검색이 필요할 수 있습니다.
 
 
+	<script>		/*
+		let tab = document.querySelectorAll('.tab-button');
+		let content = document.querySelectorAll('.tab-content'); 
+		
+			for(let i = 0; i < tab.length ; i++ ) {
+				
+				tab[i].addEventListener ('click', function (e) {
 
+					tab.forEach(function(t) {
+						t.classList.remove('orange');
+					})
+					
+					tab[i].classList.add('orange');
 
+					// tab[0].classList.remove('orange');
+					// tab[1].classList.remove('orange');
+					// tab[2].classList.remove('orange');
+					// tab[i].classList.add('orange');
+				})
+				
+			}
 
+		*/
 
-
-
-
-
-
+	</script>
 
 
 	<br><br>코딩테스트 스타일 숙제6. 1이상 1000이하까지의 모든 자연수의 합을 자바스크립트를 이용해 구해보도록 합시다. 콘솔창에 합계가 뿅하고 뜨면 성공입니다. 
 
 	<br>(힌트) 방법은 여러가지입니다. 실제 테스트에선 여러분이 작성하신 코드의 작동속도가 빠를 수록 높은 점수를 받습니다. 
 
+	<script>
+		x = 0;
+		
+		for (var i = 1; i <= 1000 ; i ++ ){
+
+			x += i ;
+
+		}
+			console.log(x)
+	</script>
 
 
 
@@ -311,16 +433,21 @@
 	<br>(조건) filter, find, indexOf, substr, map 등 어디서 찾아본 자바스크립트 내장함수 사용금지
 
 	<script>
-		var phone = ['아이폰XR', '아이폰XS', '갤럭시S', 'V30', '블랙베리'];
 
-		function search() {
+		let phone = ['아이폰XR', '아이폰XS', '갤럭시S', 'V30', '블랙베리'];
+		
+			function search(name) {
 
-			//어떤 코드가 들어가야할까요?
+				for (let i = 0; i < phone.length; i++) {
+					if (phone[i] === name) {
+						return console.log('있어요');
+					}
+				}
 
-		}
-
+				return console.log('없어요');
+			}
 		search('갤럭시S'); //콘솔창 출력결과 : '있어요!' 
-		search('아리랑폰'); //콘솔창 출력결과 : '없어요!'
+		search('아리랑폰'); 
 	</script>
 
 
