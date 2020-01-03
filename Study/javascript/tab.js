@@ -1,18 +1,33 @@
 var 버튼들 = document.querySelectorAll('.tab-button');
 var 내용들 = document.querySelectorAll('.tab-content');
 //0번째버튼을 눌렀을 경우... 
-for (let i = 0; i < 3; i++){
-버튼들[i].addEventListener('click', function(){
+
+//for (let i = 0; i < 3; i++){
+//버튼들[i].addEventListener('click', function(){
+//	버튼주황색칠(i);
+//	탭내용보이기(i);
+//});
+//}
+
+document.querySelector('ul.list').addEventListener('click', function(e){
+	//만약에 지금 누른게 버튼0이면... 버튼주황색칠(0) 탭내용보이기(0) 
+	//만약에 지금 누른게 버튼1이면... 버튼주황색칠(1) 탭내용보이기(1) 
+	버튼주황색칠(e.target.dataset.id);
+	탭내용보이기(e.target.dataset.id);
+})
+
+
+function 버튼주황색칠(i){
 	버튼들[0].classList.remove('orange');
 	버튼들[1].classList.remove('orange');
 	버튼들[2].classList.remove('orange');
 	버튼들[i].classList.add('orange');
-	
+}
+function 탭내용보이기(i){
 	내용들[0].classList.remove('show');
 	내용들[1].classList.remove('show');
 	내용들[2].classList.remove('show');
 	내용들[i].classList.add('show');
-});
 }
 
 

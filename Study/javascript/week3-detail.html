@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link href="main.css" rel="stylesheet">
+
+	<title>Hello, world!</title>
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">DressShop</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pricing</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	
+	<div class="container text-center my-4">
+		<h4>Detail</h4>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<img src="pic1.jpg" width="100%">
+			</div>
+			<div class="col-md-6">
+				<h4>Blossom Dress</h4>
+				<p>이 상품은 동대문에서 태그갈이한 상품입니다.</p>
+				<p class="price">가격 : $<span>199</span></p>
+				<form>
+					<div class="form-row">
+						<div class="col">
+							<input type="text" class="form-control" value="1" id="quantity">
+						</div>
+						<div class="col">
+							<select class="form-control" id="color">
+                <option>White</option>
+                <option>Red</option>
+                <option>Green</option>
+              </select>
+						</div>
+						<div class="col">
+							<select class="form-control" id="size">
+                <option>Large</option>
+                <option>Medium</option>
+                <option>Small</option>
+              </select>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-danger my-4" id="장바구니">장바구니추가</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+	<style>
+		.list {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			border-bottom: 1px solid #ccc;
+		}
+		
+		.tab-button {
+			display: block;
+			padding: 10px 20px 10px 20px;
+			float: left;
+			margin-right: -1px;
+			margin-bottom: -1px;
+			color: grey;
+			text-decoration: none;
+		}
+		
+		.orange {
+			border-top: 2px solid orange;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid white;
+			border-left: 1px solid #ccc;
+			color: black;
+			margin-top: -2px;
+		}
+		
+		.tab-content {
+			display: none;
+			padding: 10px;
+		}
+		
+		.show {
+			display: block;
+		}
+	</style>
+
+	<br>
+	<!--orange라는 클래스는 버튼 하이라이트해주는 클래스, show는 탭 내용 보여주는 클래스-->
+	<div class="container mt-5" style="margin-bottom: 500px;">
+		<ul class="list">
+			<li><a class="tab-button" data-id="0">Products</a></li>
+			<li><a class="tab-button orange" data-id="1">Info</a></li>
+			<li><a class="tab-button" data-id="2">Shipping</a></li>
+			<div style="clear:both;"></div>
+		</ul>
+
+		<div class="tab-content">
+			<p>상품설명입니다. Product</p>
+		</div>
+		<div class="tab-content show">
+			<p>상품정보입니다. Information</p>
+		</div>
+		<div class="tab-content">
+			<p>배송정보입니다. Shipping</p>
+		</div>
+	</div>
+	
+<!--	<script src="tab.js"></script>-->
+	
+	
+	
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  
+  <h4 id="hello">안녕하세요</h4>
+	<button class="test">버튼</button>
+
+
+	<br><br> 복습1. ▲ 바로 위에 있는 '버튼'을 누르면 그 위의 "안녕하세요"라는 글자가 사라지는 기능을 jQuery를 이용해 만들어봅니다.
+	<script>
+		$('.test').on({
+			click:function() {
+				// e.preventDefult();
+				$('#hello').hide();
+			}
+		})
+		
+	</script>
+
+
+
+	<br><br> 복습2. 현재 페이지에서 장바구니 추가 기능을 만들어봅니다. 장바구니 추가 버튼을 누르면 localStorage에 product1이라는 이름으로 사용자가 선택한 수량, 선택한 색, 선택한 사이즈, 상품명, 가격 정보 (총5개) 데이터가 object 형태로 저장이 되어야합니다. (가격, 상품명은 위의 html에 표기되어 있습니다)
+
+	<br>저장할 데이터 예시 : { name : 'Blossom Dress', quantity : 15, size : 'large', color : 'white 등 }
+
+
+
+
+
+
+	<br><br> 복습3. addEventListener() 함수를 한번만 써서 탭기능을 개발해봅니다. 답안은 tab.js에 이미 있기때문에 그거 보지말고 이 파일에다가 다시 짜보는게 어떨까요. (위에 있는 tab.js 파일 첨부하는 부분은 일부러 주석처리 해놨습니다)
+
+	<br>(힌트) 이벤트리스너 안에서 지금 어떤 버튼을 눌렀는지 판단을 하시면 되겠습니다.
+
+
+
+
+
+
+
+
+	<br><br> 복습4. 방금 localStorage에 추가했던 product1이라는 이름의 상품데이터를 뽑아내서 week3-cart.html 장바구니 페이지에 표로 띄워보세요.
+
+
+
+
+
+
+	<br><br> 복습5. 게임 캐릭터의 정보를 담은 object를 여러개 뽑기 위해 수업시간에 Hero 라는 클래스를 만들었었습니다. 이번엔 자바스크립트 최신문법 class 키워드를 이용하여 Hero 클래스를 다시 한번 만들어봅시다.
+
+
+
+
+
+
+
+
+	<br><br> 숙제1. 현재 파일에 있는 상세 이미지 주변에 '다음 이미지보기' 버튼을 하나 추가해서 버튼을 누르면 이미지가 다음 이미지로 바뀌는 기능을 만들어봅시다. jQuery 배웠으니 jQuery를 사용해보는게 어떨까요.
+
+	<br>(힌트) 이미지를 바꾸는건.. img 태그의 src 속성을 바꾸면 되겠죠?
+	
+
+
+
+
+
+
+
+
+
+	<br><br> 숙제2. 숙제1에서.. 상세 이미지가 3개인 경우도 생각해서 기능을 업그레이드 해봅시다. '다음 이미지' 버튼을 계속 누르면 다음 이미지들이 하나씩 차례로 나오게 되는 것이에요. 3번째 이미지에선 더보기 버튼 눌러도 더 이상 바뀌지 않아야합니다.
+
+	<br>(힌트) 버튼 누른 횟수를 세면.. 어떨까요? 흠..
+
+
+
+
+
+
+
+
+
+	<br><br> 숙제3. 시간 남으시면 '다음 이미지보기' 버튼 옆에 '이전 이미지보기' 버튼도 개발해봅니다. 누르면 바로 이전에 있던 이미지가 떠야합니다.
+
+	<br>(힌트) 아까 2번에서 개발한 기능과 매우 유사합니다.
+
+
+
+
+
+
+
+	<br><br> 숙제4. 장바구니 추가할 때 검사한번 거치기 : 현재 페이지에 수량 입력하는 input이 있는데, 여기에 0 이하의 음수가 들어가면 이상한 숫자 넣지말라는 안내를 주는 안내박스 UI기능을 제작해봅시다. 원래 있던 장바구니 추가기능 코드에다가 몇줄만 추가해줘도 되겠죠?
+
+	<br>(팁) input에 입력한 값은 숫자처럼 보여도 문자일 수 있습니다.
+
+
+
+
+
+
+
+
+
+	<br><br> 숙제5. 간단한 class 만들기 : 여러분은 모쏠남 모임을 개최하고 있습니다.
+
+	<br>참가자1: 박서준, 20, 고려대 
+	<br>참가자2: 유재석, 30, 연세대
+	<br>참가자3: 손흥민, 40, 서울대
+
+	<br> 다음 모쏠참가자들의 이름, 나이, 학교 정보를 각각의 object라는 자료형에 담아 관리하면 좋을것 같은데, 오늘 배운 class를 이용해 object를 만들기로 결심합니다.
+
+	<br>(문제) 오늘 배운 내용을 이용해 object를 뽑아내는 틀을 만든 후, 각각 참가자1, 참가자2, 참가자3 이라는 이름을 가진 object 세개를 뽑아내보세요. 각각 object는 이름, 나이, 학교 정보가 저장되어있어야합니다.
+
+	<br>(실행 결과 예시) console.log(참가자1.name) 대충 이렇게 쓰면 콘솔창에 박서준이라는 이름이 나와야합니다.
+
+
+
+
+
+
+	<br><br> 숙제6. class 수정 : 생각해보니 모쏠남 모임에 유저들의 성별값을 집어넣는걸 까먹었습니다. 다행히 모든 참가자는 남자입니다.
+	
+	<br> (문제) console.log(참가자1.gender) 라고 입력하면 '남자'라는 값이 나오도록 모든 참가자에 gender라는 속성을 부여해보세요.
+
+
+
+
+
+
+	<br><br> 숙제7. class에 기능 추가하기 : 아까 거기에 모쏠 스타일 인사기능을 하나씩 만들려고 합니다.
+
+	<br> (실행결과) 
+	참가자1.sayHi()를 입력하면 콘솔창에 "안녕하세요, 28살 박서준입니다." 
+	참가자2.sayHi()를 입력하면 콘솔창에 "안녕하세요, 33살 유재석입니다."
+
+	<br> 이렇게 나오도록 아까 만든 class에 sayHi()기능을 추가해보세요. 
+
+	<br>(힌트) 모르는 점은 언제나 구글에 물어보실 수 있습니다.
+
+	
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
